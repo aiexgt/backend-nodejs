@@ -2,6 +2,7 @@
 
 const express = require('express');
 const mysql = require('mysql');
+const bodyParser = require('body-parser');
 const myconnection = require('express-myconnection');
 require('dotenv').config();
 
@@ -18,6 +19,8 @@ const dbOptions = {
     database: process.env.DBDATABASE
 }
 app.use(myconnection(mysql, dbOptions, 'single'));
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
 // Routes
 app.use('/api',personasRoutes);
