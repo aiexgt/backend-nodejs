@@ -27,7 +27,7 @@ app.use(cors());
 // Routes
 app.use('/api',personasRoutes);
 
-// Server Running
+// Server Running 
 app.set('port', process.env.SERVERPORT);
 app.listen(app.get('port'), ()=>{
     console.log("Server running on port ", app.get('port'));
